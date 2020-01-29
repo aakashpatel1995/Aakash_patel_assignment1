@@ -1,5 +1,6 @@
-/* Aakash Patel */
-/* ID - 8622564 */
+<!-- Aakash Patel-->
+<!-- 8622564 -->
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,19 +15,77 @@
 </head>
 <body>
 <?php
-
-?>
-<form method="post" action ="a1p2.php">
-	<fieldset><legend>Account Creation:</legend>
-	<p><label>First Name: <input type="text" name="firstname" size="20" maxlength="40"
-    value="<? php if(isset ($_POST['firstname']))echo$_POST['firstname'];?>"></label></p>
+	// Validate the firstname:
+	if($_SERVER['REQUEST_METHOD'] == 'POST'){
+$age = $_POST['age'];
 	
-	<p><label>Last Name: <input type="text" name="lastname" size="20" maxlength="40"value="<? php if(isset ($_POST['lastname']))echo$_POST['lastname'];?>"></label></p>
-	<p><label>Age: <input type="text" name="age" size="20" maxlength="40"value="<? php if(isset ($_POST['age']))echo$_POST['age'];?>"></label></p>
+   if (!empty($_POST['firstname'])) {
+     $firstname = $_POST['firstname'];
+   } else {
+     $firstname = NULL;
+      echo '<p>You forgot to
+        enter your first name!</p>';
+ }
+
+   // Validate the lastname:
+  if (!empty($_POST['lastname'])) {
+      $lastname = $_POST['lastname'];
+  } else {
+      $lastname = NULL;
+     echo '<p>You forgot to
+        enter your lastname !</p>';
+   }
+
+   // Validate the age:
+  if  (empty($age)) {
+	echo '<p>You forgot to
+	enter your age!</p>';
+     
+   }
+   
+   else{
+	   if(!is_numeric($age)){
+		   echo "age should be number";
+	   } else {
+
+		echo "<p>Thank you,<strong><br>Firstname: $firstname<br>lastname:$lastname<br>Age: $age</p>
+		   </strong>\n";
+   
+	   
+	  }
+	 }
+   
+    
+    }
+ 
+ ?>
+
+
+	<!-- Action to - a1p2.php -->
+	<form method="post" action="a1p2.php">
+
+	<fieldset><legend>Account Creation:</legend>
+	<!-- making Sticky by value = php if (isset($_POST['firstname'])) {
+  	$firstname = $_POST['firstname'];?> -->
+	<p><label>First Name: <input type="text" name="firstname" size="20" maxlength="40" value="<?php 
+	if (isset($_POST['firstname'])) 
+	{ 
+		$fname = $_POST['firstname'];
+		 echo $fname;
+	}?>">
+		 </label></p>
+	
+	<p><label>Last Name: <input type="text" name="lastname" size="20" maxlength="40"></label></p>
+
+	<p><label>Age: <input type="text" name="age" size="20" maxlength="40"></label></p>
 	
 	<p><label for="newsletter">Subscribe to newsletter: </label><input type="radio" name="newsletter" value="Y"> Yes <input type="radio" name="newsletter" value="N"> No</p>
+
 	</fieldset>
-	<p align="center"><input type="submit" name="submit" value="Submit My Information"></p>
+
+	<p style = "align=center"><input type="submit" name="submit" value="Submit My Information"></p>
+
 </form>
+
 </body>
 </html>
