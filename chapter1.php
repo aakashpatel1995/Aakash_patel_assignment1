@@ -1,13 +1,13 @@
-/* Aakash patel */
-/* ID -8622564 */
+<!-- Aakash Patel-->
+<!-- 8622564 -->
 
 <?php
-$base = 3;   /* etext page -14 */
-$height = 7;
-$area = (1/2($base * $height));
-$area = number_format($area, 3);/* etext page 24 */
-echo '<p>The area of the Triangle is ' . $area .'</p>'
-define('MY_NAME','Aakash Patel');/* etext page 26 */
-$MY_NAME = strtoupper(MY_NAME);/* etext page 22 */
-echo '<p> My first name is <strong>'. $MY_NAME .'</strong></p>';/* etext page 27 */
+$base = 7.3454; 
+$height = 3.646456;
+$area = 1/2 * ($base * $height);
+$area = round($area ,3);
+echo "<p> The area of Triangle is: <br><strong>.$area.</strong></p>";
+define("MY_NAME","aakash Patel");
+echo "My first Name is"."<strong>".strtoupper(MY_NAME)."</strong>";
 ?>
+ 
