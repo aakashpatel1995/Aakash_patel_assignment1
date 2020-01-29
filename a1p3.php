@@ -53,8 +53,25 @@ echo "<strong>Sorted Array :</strong> <br> $part_array"
 <?php
 
 function myduplicate($str){
-	
-	echo "hello world";
+for($x = 0; $x <strlen($str);$x++)
+{
+	for($y = $x +1;$y < strlen($str) ; $y++) 
+	{
+		if($str[$x] == $str[$y])
+		{
+			return true;
+		}
+	}
+}
+}
+$text =$_POST['firstname'];
+$result = myduplicate($text);
+if($result == 'true'){
+	echo "<br><br>String is Duplicate Characters";
+}
+else
+{
+	echo "<br><br>string is no duplicate characters";
 }
 
 ?>
